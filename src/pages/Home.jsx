@@ -1,6 +1,7 @@
 import  { useEffect, useState } from 'react'
 import "../App.css"
 import {  useNavigate } from 'react-router-dom';
+import Navbar from '../components/navbar';
 function Home() {
       const [posts, setPosts] = useState(Array(15).fill(null));
     const navigate =useNavigate()
@@ -33,16 +34,7 @@ function Home() {
       }
       return (
         <div>
-          <nav className="nav">
-            <div className="heading">GalleryGo</div>
-            <div className="list">
-              <span className="gallery">Gallery</span>
-              <span className="about">About</span>
-              <span className="contact">Contact</span>
-              <span className='logout' onClick={handleLogout}>logout</span>
-            </div>
-            <div className="hamburger" id="hamburger">☰</div>
-          </nav>
+          <Navbar handleLogout={handleLogout} />
     
           <div id="feed-container" className="feed-container">
             {posts.map((_, index) => (
